@@ -1,25 +1,40 @@
 import 'package:flutter/material.dart';
 
 class RecipeMenu extends StatelessWidget {
+  double? gap;
+
+  RecipeMenu({
+    Key? key,
+    double? this.gap = 25, // 이런식으로 디폴트 값을 지정해줄 수도 있음
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return Padding(padding: const EdgeInsets.only(top:20),
-      child: Row( // 메뉴 아이템의 방향이 수평 방향이기 때문
-        children: [
-          _buildMenuItem(Icon.food_bank, "ALL"), // 재사용
-          SizedBox(width: 25,),
-          _buildMenuItem(Icon.emoji_food_beverage, "Coffe"), // 재사용
-          SizedBox(width: 25,),
-          _buildMenuItem(Icon.fastfood, "Burger"), // 재사용
-          SizedBox(width: 25,),
-          _buildMenuItem(Icon.local_pizza, "pizza"), // 재사용
-        ],
-      )
+    return Row(
+      children: [
+        _buildMenuItem(Icons.food_bank, "ALL"),
+        SizedBox(
+          width: 20,
+        ),
+        _buildMenuItem(Icons.emoji_food_beverage, "Coffe"),
+        SizedBox(
+          width: 20,
+        ),
+        _buildMenuItem(Icons.fastfood, "buger"),
+        SizedBox(
+          width: 20,
+        ),
+        _buildMenuItem(Icons.local_pizza, "pizza"),
+        SizedBox(
+          width: 20,
+        ),
+        SizedBox(
+          width: gap,
+        ),
+      ],
     );
   }
 
-  // 재사용할 수 있는 함수
-  // widget은 모든 위젯의 부모이기 때문에 함수리턴타입은 widget으로 하는 것이 좋다.
   Widget _buildMenuItem(IconData mIcon, String text) {
     return Container(
       width: 60,
@@ -31,8 +46,14 @@ class RecipeMenu extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(mIcon, color: Colors.redAccent, size:30,),
-          SizedBox(height: 5,),
+          Icon(
+            mIcon,
+            color: Colors.redAccent,
+            size: 30,
+          ),
+          SizedBox(
+            height: 5,
+          ),
           Text(
             text,
             style: TextStyle(color: Colors.black87),

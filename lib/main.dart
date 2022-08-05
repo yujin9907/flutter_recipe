@@ -9,9 +9,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) { 
-    return MaterialApp( // 레시피 제목 수정
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(fontFamily: "PatuaOne"), // 레시피(제목) 폰트 변경 yaml 폴더에 있음
+      theme: ThemeData(fontFamily: "PatuaOne"),
       home: RecipePage(),
     );
   }
